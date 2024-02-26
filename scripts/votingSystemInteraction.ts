@@ -2,8 +2,12 @@ import { ethers } from "hardhat";
 
 async function main() {
 
-  const votingSystemContractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+  const votingSystemContractAddress = "0x5377A6bDa3a6e7Cf067a88dC74bFfa5e63E63AE3";
   const VotingSystem = await ethers.getContractAt("IVotingSystem", votingSystemContractAddress);
+
+  const initialTransactionTx = await VotingSystem.getTotalVotes();
+
+  console.log(`Total Votes: ${initialTransactionTx}`);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
